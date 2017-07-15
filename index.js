@@ -1,8 +1,8 @@
 /* main.js
 Main app source code.
 
-this source code quote 
-https://electron.atom.io/docs/tutorial/quick-start 
+this source code quote
+https://electron.atom.io/docs/tutorial/quick-start
 */
 
 
@@ -23,7 +23,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, '/pages/main_page/index.html'),
+    pathname: path.join(__dirname, 'main_page.html'),
     protocol: 'file:',
     slashes: true
   }))
