@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="lib/skyblue/css/skyblue.css">
 <link rel="stylesheet" href="css/style.css">
+<script src="./js/view.js"></script>
 
 <body>
 	<h1>Welcome to Nyanko</h1>
@@ -8,11 +9,11 @@
 	<div id=server_or_client>
 		<p>Choose nyanko mode.</p>
 		<label class="fancy-radio">
-			<input type="radio" name="server_or_client">
+			<input type="radio" name="server_or_client" id="server_radio" onchange="trunButton()">
 			<span>Server Mode</span>
 		</label>
 		<label class="fancy-radio">
-			<input type="radio" name="server_or_client">
+			<input type="radio" name="server_or_client" id="client_radio" onchange="trunButton()">
 			<span>Client Mode</span>
 		</label>
 	</div>
@@ -22,11 +23,11 @@
 	<div id=transport_layer>
 		<p>Choose transport layer protocol that you want to use.</p>
 		<label class="fancy-radio">
-			<input type="radio" name="transport_layer">
+			<input type="radio" name="transport_layer" id="udp_radio" onchange="trunButton()">
 			<span>UDP</span>
 		</label>
 		<label class="fancy-radio">
-			<input type="radio" name="transport_layer">
+			<input type="radio" name="transport_layer" id="tcp_radio" onchange="trunButton()">
 			<span>TCP</span>
 		</label>	</div>
 	<br>
@@ -44,6 +45,6 @@
 		</div>
 
 	<br>
-	<a class="btn btn-light" style="width:100%;">Meow</a>
+	<a class="btn btn-light" style="width:100%;" id="meow_button">Meow</a>
 
 </body>
