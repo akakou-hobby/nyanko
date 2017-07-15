@@ -44,19 +44,35 @@ var NetCat = {
       }
 
       /* check protocol and return part of command */
-      function setProtocol(){
+      function setProtocolAndIsServer(){
         // check which is using protocol, tcp or udp
-        if(argument_dictionary.protocol == 'tcp'){
-          // if choose tcp, return none
+        // and check use for serevr or client
+        if(argument_dictionary.protocol == 'tcp' && !argument_dictionary.is_server){
+          // if choose tcp, and use for client,
+          // return none
           return '';
 
-        }else if(argument_dictionary.dictionary == 'udp'){
-          // if choose udp return 'u'
-          return 'u';
+        }else if(argument_dictionary.protocol == 'tcp' && argument_dictionary.is_server){
+          // if choose tcp, and use for server,
+          // return '-kvl'
+          return '-kvl';
+
+        }else if(argument_dictionary.protocol == 'udp' && !argument_dictionary.is_server){
+          // if choose udp, and use for client,
+          // return '-u'
+          return '-u';
+
+        }else if(argument_dictionary.protocol == 'udp' && argument_dictionary.is_server){
+          // if choose udp, and use for server,
+          // return '-e /bin/cat -uvl'
+          return '-e /bin/cat -uvl';
 
         }else{
-          // if not choose tcp or udp, throw error
-          throw new Error('not correct protocol:' + argument_dictionary.dictionary);
+          // if not choose tcp and udp, throw error
+          throw new Error(
+            'not correct protocol:' + argument_dictionary.protocol
+            + '\n or use for client or server ? :' + argument_dictionary.is_server
+          );
 
         }
         return argument_dictionary.protocol;
