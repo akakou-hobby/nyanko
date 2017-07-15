@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/akakou/netnyanko/issues"
   },
-  "homepage": "https://github.com/akakou/netnyanko#readme"
+  "homepage": "https://github.com/akakou/netnyanko#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
