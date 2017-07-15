@@ -9,10 +9,10 @@ var exec = require('child_process').exec;
 
 
 /* --- Run netcat --- */
-var netcat = {
+var NetCat = {
 
-  /* --- Run Shell Script --- */
-  RunShellScript: function(command){
+  /* Run Shell Script */
+  runShellScript: function(command){
     // return with promise
     return new Promise(function(resolve, reject){
       // run command of argument
@@ -28,9 +28,36 @@ var netcat = {
         }
       });
     });
+
+    /* set netcat command */
+    setNetCatCommand: function(){
+      /* check protocol and port
+        and return part of command */
+      function setProtocol(){
+        
+      }
+
+      /* check how to use which server or client or portscan
+        and return part of command */
+      function setForServer(){
+
+      }
+
+      /* check using IPv4 or IPv6
+        and return part of command */
+      function setIPv4_OR_IPv6(){
+
+      }
+
+      /* check getting packet datails
+        and return part of command */
+      function setGettingPacketDetails(){
+
+      }
+    }
   }
 }
 
 
 // use for module
-module.exports = netcat;
+module.exports = NetCat;
