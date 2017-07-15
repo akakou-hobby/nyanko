@@ -6,5 +6,7 @@ var state = {
   canMeow: false,
   udp_tcp: '',
   server_client: '',
+  host: '',
+  port: '',
   message: ''
 }

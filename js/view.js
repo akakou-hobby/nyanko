@@ -28,6 +28,9 @@ var view = {
   setState: function(){
     // set message of message_textarea
     state.message = document.getElementById('message_textarea').value;
+    state.host = document.getElementById('host_text').value;
+    state.port = document.getElementById('port_text').value;
+
 
     // get elements
     var is_server_radio = document.getElementById('server_radio').checked;
@@ -41,7 +44,7 @@ var view = {
       state.server_client = 'client';
     }
 
-    // set to 'udp' or 'tcp' to state.udp_tcp 
+    // set to 'udp' or 'tcp' to state.udp_tcp
     if(use_udp){
       state.udp_tcp = 'udp';
     }else{
