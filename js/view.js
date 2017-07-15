@@ -13,7 +13,7 @@ function trunButton(){
 
   // if setup complete,
   // meow button turn on(make it blue)
-  if(server_radio.checked || client_radio.checked && udp_radio.checked || tcp_radio.checked){
+  if((server_radio.checked || client_radio.checked) && (udp_radio.checked || tcp_radio.checked)){
     // get element
     var meow_button = document.getElementById('meow_button');
     // remove btn-light
