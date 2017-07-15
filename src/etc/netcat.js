@@ -36,8 +36,8 @@ var NetCat = {
     function setHostAndPort(){
       // check host or port not null
       // if host or port have null, throw error
-      if(argument_dictionary.host || argument_dictionary.port){
-        throw new Error('host not defined');
+      if(!argument_dictionary.host || !argument_dictionary.port){
+        throw new Error('host or port not defined');
       }
 
       return argument_dictionary.host + ' ' + argument_dictionary.port;
@@ -111,8 +111,8 @@ var NetCat = {
 
     /* -- main script
       make command and return command -- */
-    nc_command = 'nc '+ setProtocolAndUseForServer + ' '
-      + setGettingPacketDetails  + ' ' + setHostAndPort
+    var nc_command = 'nc '+ setProtocolAndUseForServer() + ' ' + setIPv4_OR_IPv6()
+      + setGettingPacketDetails()  + ' ' + setHostAndPort()
 
     return nc_command;
   }
