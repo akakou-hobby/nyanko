@@ -30,11 +30,17 @@ var NetCat = {
     });
 
     /* set netcat command */
-    setNetCatCommand: function(){
+    setNetCatCommand: function(argument_dictionary){
+      /* check host and port
+        and return part of command */
+      function setHostAndPort(){
+
+      }
+
       /* check protocol and port
         and return part of command */
       function setProtocol(){
-        
+
       }
 
       /* check how to use which server or client or portscan
