@@ -18,5 +18,7 @@ function trunButton(){
     var meow_button = document.getElementById('meow_button');
     // remove btn-light
     meow_button.classList = ['btn'];
+    // turn on canMeow of state
+    state.canMeow = true;
   }
 }
