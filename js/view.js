@@ -22,5 +22,30 @@ var view = {
       // turn on canMeow of state
       state.canMeow = true;
     }
+  },
+
+  /* get elements state and set `state` */
+  setState: function(){
+    // set message of message_textarea
+    state.message = document.getElementById('message_textarea').value;
+
+    // get elements
+    var is_server_radio = document.getElementById('server_radio').checked;
+    var use_udp = document.getElementById('udp_radio').checked;
+
+    // set to 'server' or 'client' to state.server_client
+    if(is_server_radio){
+      state.server_client = 'server';
+
+    }else{
+      state.server_client = 'client';
+    }
+
+    // set to 'udp' or 'tcp' to state.udp_tcp 
+    if(use_udp){
+      state.udp_tcp = 'udp';
+    }else{
+      state.udp_tcp = 'tcp';
+    }
   }
 }

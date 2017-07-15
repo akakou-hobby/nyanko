@@ -9,6 +9,7 @@ function onChangeRadioButton(){
 /* when push meow button, called */
 function onPushedButton(){
   if(state.canMeow == true){
-    alert('meow');
+    view.setState();
+    console.log(state);
   }
 }
