@@ -88,7 +88,7 @@ var NetCat = {
 
         }else if(argument_dictionary.ip_version == 6){
           // if use IPv6, retunr '-6'
-          return '-6'
+          return '-6';
 
         }else{
           // if not use IPv4 and IPv6, throw error
@@ -101,7 +101,12 @@ var NetCat = {
       /* check getting packet datails
         and return part of command */
       function setGettingPacketDetails(){
-
+        // check getting packet datails
+        if(argument_dictionary.get_datails){
+          return '';
+        }else{
+          return '-v';
+        }
       }
     }
   }
