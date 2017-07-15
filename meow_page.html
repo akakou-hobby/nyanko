@@ -3,13 +3,19 @@
 
 <body>
   <script>
+    // get and remove swao json file
     var fs = require('fs');
     var hoge = JSON.parse(fs.readFileSync('./.swp', 'utf8'));
-
-    console.log(hoge);
+    var hoge = fs.unlink('./.swp')
 
   </script>
   <h1>Meow !</h1>
 	<h3>Output</h3>
+    <code style="height:50%; width:100%; background:#606060" id="output_textarea"></code>
+  <br>
+
   <h3>Input</h3>
+  <div>
+    <input class="form-control" type="text" id="input_text">
+  </div>
 </body>
