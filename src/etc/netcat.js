@@ -34,13 +34,32 @@ var NetCat = {
       /* check host and port
         and return part of command */
       function setHostAndPort(){
+        // check host or port not null
+        // if host or port have null, throw error
+        if(argument_dictionary.host || argument_dictionary.port){
+          throw new Error('host not defined');
+        }
 
+        return argument_dictionary.host + ' ' + argument_dictionary.port;
       }
 
-      /* check protocol and port
-        and return part of command */
+      /* check protocol and return part of command */
       function setProtocol(){
+        // check which is using protocol, tcp or udp
+        if(argument_dictionary.protocol == 'tcp'){
+          // if choose tcp, return none
+          return '';
 
+        }else if(argument_dictionary.dictionary == 'udp'){
+          // if choose udp return 'u'
+          return 'u';
+
+        }else{
+          // if not choose tcp or udp, throw error
+          throw new Error('not correct protocol:' + argument_dictionary.dictionary);
+
+        }
+        return argument_dictionary.protocol;
       }
 
       /* check how to use which server or client or portscan
