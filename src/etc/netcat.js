@@ -47,7 +47,6 @@ var NetCat = {
         and return part of command */
       function setProtocolAndUseForServer(){
         // check which is using protocol, tcp or udp
-        // and check use for serevr or client
         if(argument_dictionary.protocol == 'tcp' && !argument_dictionary.is_server){
           // if choose tcp, and use for client,
           // return none
@@ -82,7 +81,21 @@ var NetCat = {
       /* check using IPv4 or IPv6
         and return part of command */
       function setIPv4_OR_IPv6(){
+        // check using IPv4 or IPv6
+        if(argument_dictionary.ip_version == 4){
+          // if use IPv4, return '-4'
+          return '-4';
 
+        }else if(argument_dictionary.ip_version == 6){
+          // if use IPv6, retunr '-6'
+          return '-6'
+
+        }else{
+          // if not use IPv4 and IPv6, throw error
+          throw new Error(
+            'not correct ip version:' + argument_dictionary.ip_version
+          );
+        }
       }
 
       /* check getting packet datails
