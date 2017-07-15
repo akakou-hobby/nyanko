@@ -43,8 +43,9 @@ var NetCat = {
         return argument_dictionary.host + ' ' + argument_dictionary.port;
       }
 
-      /* check protocol and return part of command */
-      function setProtocolAndIsServer(){
+      /* check protocol and use for server or client
+        and return part of command */
+      function setProtocolAndUseForServer(){
         // check which is using protocol, tcp or udp
         // and check use for serevr or client
         if(argument_dictionary.protocol == 'tcp' && !argument_dictionary.is_server){
@@ -76,12 +77,6 @@ var NetCat = {
 
         }
         return argument_dictionary.protocol;
-      }
-
-      /* check how to use which server or client or portscan
-        and return part of command */
-      function setForServer(){
-
       }
 
       /* check using IPv4 or IPv6
