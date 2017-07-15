@@ -1,7 +1,49 @@
 <link rel="stylesheet" href="lib/skyblue/css/skyblue.css">
+<link rel="stylesheet" href="css/style.css">
 
 <body>
-	<p>Hello World</p>
-	<textarea class="form-control"></textarea>
+	<h1>Welcome to Nyanko</h1>
+	<h3>Server or Client</h3>
+	
+	<div id=server_or_client>
+		<p>Choose nyanko mode.</p>
+		<label class="fancy-radio">
+			<input type="radio" name="server_or_client">
+			<span>Server Mode</span>
+		</label>
+		<label class="fancy-radio">
+			<input type="radio" name="server_or_client">
+			<span>Client Mode</span>
+		</label>
+	</div>
+	<br>
+	
+	<h3>UDP or TCP</h3>
+	<div id=transport_layer>
+		<p>Choose transport layer protocol that you want to use.</p>
+		<label class="fancy-radio">
+			<input type="radio" name="transport_layer">
+			<span>UDP</span>
+		</label>
+		<label class="fancy-radio">
+			<input type="radio" name="transport_layer">
+			<span>TCP</span>
+		</label>	</div>
+	<br>
+	
+	<h3>Message</h3>
+		<div>
+			<p>If you want to send packet.</p>
+			<p>Please on this check box and type message.</p>
+			<select class="form-control">
+	    	<option> not use template </option>
+	    	<option> http </option>
+			</select>
+
+			<textarea class="form-control" style="height:50%;"></textarea>
+		</div>
+
+	<br>
+	<a class="btn btn-light" style="width:100%;">Meow</a>
 
 </body>
