@@ -108,6 +108,13 @@ var NetCat = {
           return '-v';
         }
       }
+
+      /* -- main script
+        make command and return command -- */
+      nc_command = 'nc '+ setProtocolAndUseForServer ' '
+        + setGettingPacketDetails  + ' ' + setHostAndPort
+
+      return nc_command;
     }
   }
 }
