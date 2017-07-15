@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="lib/skyblue/css/skyblue.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="./js/view.js"></script>
+<script src="./js/state.js"></script>
+<script src="./js/event.js"></script>
+
 
 <body>
 	<h1>Welcome to Nyanko</h1>
@@ -9,11 +12,11 @@
 	<div id=server_or_client>
 		<p>Choose nyanko mode.</p>
 		<label class="fancy-radio">
-			<input type="radio" name="server_or_client" id="server_radio" onchange="trunButton()">
+			<input type="radio" name="server_or_client" id="server_radio" onchange="onChangeRadioButton()">
 			<span>Server Mode</span>
 		</label>
 		<label class="fancy-radio">
-			<input type="radio" name="server_or_client" id="client_radio" onchange="trunButton()">
+			<input type="radio" name="server_or_client" id="client_radio" onchange="onChangeRadioButton()">
 			<span>Client Mode</span>
 		</label>
 	</div>
@@ -23,11 +26,11 @@
 	<div id=transport_layer>
 		<p>Choose transport layer protocol that you want to use.</p>
 		<label class="fancy-radio">
-			<input type="radio" name="transport_layer" id="udp_radio" onchange="trunButton()">
+			<input type="radio" name="transport_layer" id="udp_radio" onchange="onChangeRadioButton()">
 			<span>UDP</span>
 		</label>
 		<label class="fancy-radio">
-			<input type="radio" name="transport_layer" id="tcp_radio" onchange="trunButton()">
+			<input type="radio" name="transport_layer" id="tcp_radio" onchange="onChangeRadioButton()">
 			<span>TCP</span>
 		</label>	</div>
 	<br>
