@@ -1,5 +1,5 @@
 /* view.js
-this source program run for view*/
+this source program run for main_page view */
 
 
 var view = {
@@ -51,12 +51,7 @@ var view = {
     }else{
       state.udp_tcp = 'tcp';
     }
-  },
-
-  /* add output to display */
-  addOutput: function(add_log){
-    // add add_log to textarea
-    var textarea = document.getElementById('output_textarea');
-    textarea.innerHTML = textarea.innerHTML + add_log;
   }
 }
+
+module.exports = view;

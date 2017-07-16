@@ -10,3 +10,5 @@ var state = {
   port: '',
   message: ''
 }
+
+module.exports = state;

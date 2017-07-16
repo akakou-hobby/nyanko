@@ -1,6 +1,9 @@
 /* event.js
 this source program is called when nynko have event */
 
+var view = require('./js/view');
+var state = require('./js/state')
+
 /* when change selected radio button, called */
 function onChangeRadioButton(){
   view.trunButton();
@@ -16,7 +19,7 @@ function onPushedButton(){
       if(err){
         throw err;
       }
-      location.href = './meow_page.html';
+      location.href = '../meow_page/index.html';
 
     });
   }

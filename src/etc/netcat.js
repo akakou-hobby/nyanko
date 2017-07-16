@@ -1,6 +1,7 @@
 /* netcat.js
 this source program control netcat
 */
+var escape = require("html-escape");
 
 /* Contorl Netcat */
 Meow = {
@@ -63,6 +64,8 @@ Meow = {
 
   /* when server get request, get data and send data */
   onServerGetData: function(socket, chunk){
+    chunk = escape(chunk)
+
     console.log(chunk.toString('utf8'));
     // get
     this.output(chunk.toString('utf8'));
@@ -70,6 +73,8 @@ Meow = {
     socket.write(this.msg);
   },
   onClientGetData: function(chunk){
+    chunk = escape(chunk)
+
     console.log(chunk.toString('utf8'));
 
     this.output(chunk.toString('utf8'));

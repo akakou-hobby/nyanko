@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="lib/skyblue/css/skyblue.css">
+<link rel="stylesheet" href="../../lib/skyblue/css/skyblue.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="./js/view.js"></script>
 
@@ -8,17 +8,20 @@
     // get and remove swao json file
     var fs = require('fs');
     var config = JSON.parse(fs.readFileSync('./.swp', 'utf8'));
+    console.log(config)
     fs.unlink('./.swp')
 
-    var netcat = require('./js/etc/netcat.js');
+    var netcat = require('../../etc/netcat.js');
 
-    netcat.constract(view.addOutput, config.server_client, config.port, config.host, config.msg);
+    // meow
+    netcat.constract(view.addOutput, config.server_client, config.port, config.host, config.message);
     netcat.run();
 
   </script>
   <h1>Meow !</h1>
 	<h3>Output</h3>
-    <code style="height:50%; width:100%; background:#606060; color:#F5F5F5" id="output_textarea"></code>
+  <textarea style="height:50%; width:100%; background:#606060; color:#F5F5F5" id="output_textarea">
+  </textarea>
   <br>
 
   <h3>Input</h3>
