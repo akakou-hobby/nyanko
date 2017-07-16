@@ -44,7 +44,9 @@ Meow = {
     // check client mode or server mode and setup.
     if(this.mode == 'client'){
       // start client connection
-      this.Netcat.addr(this.host).port(this.port).connect()
+      var client = this.Netcat.addr(this.host).port(this.port).connect().on('data', this.onClientGetData);
+      client.send('GET /images/json HTTP/1.0\r\n\r\n')
+      //client.send
     }else if(this.mode == 'server'){
       // start server listining
       var server = this.Netcat.port(this.port).listen().on('data', this.onServerGetData);
@@ -62,6 +64,9 @@ Meow = {
     console.log(chunk.toString('utf8'));
     // send
     socket.write(this.msg);
+  },
+  onClientGetData: function(chunk){
+    console.log(chunk.toString('utf8'));
   }
 }
 
