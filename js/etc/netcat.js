@@ -12,9 +12,10 @@ Meow = {
 
   /* this is constracter.
     it set host, port and netcat mode (client or server) */
-  constract: function(mode, port, host='', msg=''){
+  constract: function(output, mode, port, host='', msg=''){
+    this.output = output;
     this.host = host;
-    this.port = port;
+    this.port = parseInt(port);
     this.msg = msg;
 
     this.Netcat = null;
@@ -45,11 +46,13 @@ Meow = {
     if(this.mode == 'client'){
       // start client connection
       var client = this.Netcat.addr(this.host).port(this.port).connect().on('data', this.onClientGetData);
+      client.output = this.output;
       client.send('GET /images/json HTTP/1.0\r\n\r\n')
       //client.send
     }else if(this.mode == 'server'){
       // start server listining
       var server = this.Netcat.port(this.port).listen().on('data', this.onServerGetData);
+      server.output = this.output;
       server.msg = this.msg;
 	  }else{
       // if mode is not correct,
@@ -60,13 +63,16 @@ Meow = {
 
   /* when server get request, get data and send data */
   onServerGetData: function(socket, chunk){
-    // get
     console.log(chunk.toString('utf8'));
+    // get
+    this.output(chunk.toString('utf8'));
     // send
     socket.write(this.msg);
   },
   onClientGetData: function(chunk){
     console.log(chunk.toString('utf8'));
+
+    this.output(chunk.toString('utf8'));
   }
 }
 

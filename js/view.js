@@ -47,8 +47,16 @@ var view = {
     // set to 'udp' or 'tcp' to state.udp_tcp
     if(use_udp){
       state.udp_tcp = 'udp';
+
     }else{
       state.udp_tcp = 'tcp';
     }
+  },
+
+  /* add output to display */
+  addOutput: function(add_log){
+    // add add_log to textarea
+    var textarea = document.getElementById('output_textarea');
+    textarea.innerHTML = textarea.innerHTML + add_log;
   }
 }
