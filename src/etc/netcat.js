@@ -111,37 +111,28 @@ Meow = {
   /* when server get tcp request, get data and send data */
   onTCPServerGetData: function(socket, chunk){
     console.log(this);
-    // escape
-    chunk = escape(chunk.toString('utf8'));
     // get
-    this.output(chunk);
+    this.output(chunk.toString('utf8'));
     // send
     socket.write(this.msg);
   },
 
   /* when client get tcp response, get data and send data */
   onTCPClientGetData: function(chunk){
-    // escape
-    chunk = escape(chunk.toString('utf8'));
     // get
-    this.output(chunk);
+    this.output(chunk.toString('utf8'));
   },
 
   /* when server get udp request, get data and send data */
   onUDPServerGetData: function(rinfo, chunk){
-    console.log(this);
-    // escape
-    chunk = escape(chunk.toString('utf8'));
     // get
-    this.output(chunk);
+    this.output(chunk.toString('utf8'));
   },
 
   /* when client get udp response, get data and send data */
   onUDPClientGetData: function(chunk){
-    // escape
-    chunk = escape(chunk.data.toString('utf8'));
     // send
-    this.output(chunk);
+    this.output(chunk.data.toString('utf8'));
   }
 }
 

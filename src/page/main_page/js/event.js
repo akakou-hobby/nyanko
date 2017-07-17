@@ -24,3 +24,9 @@ function onPushedButton(){
     });
   }
 }
+
+/* when chenge selecter selected, called */
+function onChangeSelecter(){
+  console.log('hoeg')
+  view.useTemplate();
+}

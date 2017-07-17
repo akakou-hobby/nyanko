@@ -51,6 +51,45 @@ var view = {
     }else{
       state.udp_tcp = 'tcp';
     }
+  },
+
+  /* use template */
+  useTemplate: function(){
+    // get template
+    var fs = require('fs');
+    var selecter = document.getElementById('selecter');
+    fs.readFile('./template/' + selecter.value, 'utf8', function (err, text) {
+      // check and throw err
+      if(err){
+        throw err;
+      }
+
+      // get text area
+      var textarea = document.getElementById('message_textarea');
+      textarea.value = text + textarea.value;
+    });
+  },
+
+  /* get and set file templates */
+  getTemplate: function(){
+    var fs = require('fs');
+    // get file directries
+    fs.readdir('./template', function(err, files){
+      // check and throw err
+      if (err){
+        throw err;
+      }
+
+      // set selecter to files
+      var selecter = document.getElementById('selecter');
+      var tag = '<option> not use template </option>\n';
+
+      for(name of files){
+        tag += ' <option> ' + name + ' </option> \n';
+      }
+
+      selecter.innerHTML = tag;
+    });
   }
 }
 

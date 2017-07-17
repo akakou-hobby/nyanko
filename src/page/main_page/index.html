@@ -56,10 +56,12 @@
 
 		<p>If you want to send packet.</p>
 		<p>Please on this check box and type message.</p>
-		<select class="form-control">
-	  	<option> not use template </option>
-	  	<option> http </option>
-		</select>
+
+		<select class="form-control" onchange="onChangeSelecter()" id="selecter"></select>
+		<script>
+			var view = require('./js/view');
+			view.getTemplate();
+		</script>
 
 		<textarea class="form-control" style="height:50%;" id="message_textarea"></textarea>
 	</div>
