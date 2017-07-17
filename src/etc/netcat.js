@@ -22,6 +22,7 @@ Meow = {
     this.tcp_udp = tcp_udp;
 
     this.Netcat = null;
+
     // check client mode or server mode.
     // and make chose instrance.
     if(mode == 'client'){
@@ -54,7 +55,9 @@ Meow = {
           .port(this.port)
           .connect()
           .on('data', this.onTCPClientGetData)
-          .send(this.msg);
+          .send(this.msg)
+          .output = this.output;
+
       }else if(this.tcp_udp == 'udp'){
         // udp client
         var client = this.Netcat.udp()
@@ -62,7 +65,8 @@ Meow = {
           .wait(1000)
           .init()
           .on('data', this.onUDPClientGetData)
-          .send(this.msg, this.host);
+          .send(this.msg, this.host)
+          .output = this.output;
 
       }else{
         // if transport layer is not correct,
@@ -70,14 +74,33 @@ Meow = {
         throw new Error('this transport layer is not defined :' + this.tcp_udp);
       }
 
-      // set output function
-      client.output = this.output;
-
     }else if(this.mode == 'server'){
-      // start server listining
-      var server = this.Netcat.port(this.port).listen().on('data', this.onTCPServerGetData);
-      server.output = this.output;
-      server.msg = this.msg;
+      if(this.tcp_udp == 'tcp'){
+        // start tcp server listining
+        var server = this.Netcat.port(this.port)
+          .listen()
+          .on('data', this.onTCPServerGetData);
+
+        server.output = this.output;
+        server.msg = this.msg;
+
+      }else if(this.tcp_udp == 'udp'){
+        // start udp server listining
+        var server = this.Netcat.udp()
+          .port(this.port)
+          .listen()
+          .on('data', this.onUDPServerGetData);
+
+        server.output = this.output;
+        server.msg = this.msg;
+
+      }else{
+        // if transport layer is not correct,
+        // throw error
+        throw new Error('this transport layer is not defined :' + this.tcp_udp);
+
+      }
+
 	  }else{
       // if mode is not correct,
       // throw error
@@ -87,10 +110,11 @@ Meow = {
 
   /* when server get tcp request, get data and send data */
   onTCPServerGetData: function(socket, chunk){
+    console.log(this);
     // escape
-    chunk = escape(chunk);
+    chunk = escape(chunk.toString('utf8'));
     // get
-    this.output(chunk.toString('utf8'));
+    this.output(chunk);
     // send
     socket.write(this.msg);
   },
@@ -98,27 +122,26 @@ Meow = {
   /* when client get tcp response, get data and send data */
   onTCPClientGetData: function(chunk){
     // escape
-    chunk = escape(chunk);
+    chunk = escape(chunk.toString('utf8'));
     // get
-    this.output(chunk.toString('utf8'));
+    this.output(chunk);
   },
 
   /* when server get udp request, get data and send data */
-  onUDPServerGetData: function(socket, chunk){
+  onUDPServerGetData: function(rinfo, chunk){
+    console.log(this);
     // escape
-    chunk = escape(chunk);
+    chunk = escape(chunk.toString('utf8'));
     // get
-    this.output(chunk.toString('utf8'));
-    // send
-    socket.write(this.msg);
+    this.output(chunk);
   },
 
   /* when client get udp response, get data and send data */
   onUDPClientGetData: function(chunk){
     // escape
-    chunk = escape(chunk.data);
+    chunk = escape(chunk.data.toString('utf8'));
     // send
-    this.output(chunk.toString('utf8'));
+    this.output(chunk);
   }
 }
 
