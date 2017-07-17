@@ -14,7 +14,7 @@
     var netcat = require('../../etc/netcat.js');
 
     // meow
-    netcat.constract(view.addOutput, config.server_client, config.port, config.host, config.message);
+    netcat.constract(view.addOutput, config.server_client, config.udp_tcp, config.port, config.host, config.message);
     netcat.run();
 
   </script>
