@@ -59,11 +59,26 @@ var view = {
     // get template
     var fs = require('fs');
     var selecter = document.getElementById('selecter');
+    var host = document.getElementById('host_text').value;
+    var port = document.getElementById('port_text').value;
+
     fs.readFile('./template/' + selecter.value, 'utf8', function (err, text) {
       // check and throw err
       if(err){
         throw err;
       }
+
+      // replace '$host' to host_text input
+      var text = text.replace('$host', host);
+
+      // replace '$host' to port_text input
+      var text = text.replace('$port', port);
+
+      // make '$host' unescape
+      var text = text.replace('$$host', '$host');
+
+      // make '$post' unescape
+      var text = text.replace('$$port', '$port');
 
       // get text area
       var textarea = document.getElementById('message_textarea');

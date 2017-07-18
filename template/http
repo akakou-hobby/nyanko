@@ -1,5 +1,5 @@
 GET / HTTP/1.1
-Host: host
+Host: $host
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
 User-Agent: your_browser_info
@@ -7,4 +7,3 @@ Accept: accept
 Accept-Encoding: gzip, deflate, sdch
 Accept-Language: en-US;
 Cookie: cookie=taste_good
-
