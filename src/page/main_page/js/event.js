@@ -27,6 +27,10 @@ function onPushedButton(){
 
 /* when chenge selecter selected, called */
 function onChangeSelecter(){
-  console.log('hoeg')
   view.useTemplate();
+}
+
+/* when clicked input, post_text */
+function onChangePortText(){
+  view.trunButton();
 }

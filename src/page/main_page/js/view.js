@@ -11,10 +11,11 @@ var view = {
     var client_radio = document.getElementById('client_radio');
     var udp_radio = document.getElementById('udp_radio');
     var tcp_radio = document.getElementById('tcp_radio');
+    var port_text = document.getElementById('port_text');
 
     // if setup complete,
     // meow button turn on(make it blue)
-    if((server_radio.checked || client_radio.checked) && (udp_radio.checked || tcp_radio.checked)){
+    if((server_radio.checked || client_radio.checked) && (udp_radio.checked || tcp_radio.checked) && (port_text.value)){
       // get element
       var meow_button = document.getElementById('meow_button');
       // remove btn-light
