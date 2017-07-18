@@ -79,6 +79,7 @@ Meow = {
         // start tcp server listining
         var server = this.Netcat.port(this.port)
           .listen()
+          .k()
           .on('data', this.onTCPServerGetData);
 
         server.output = this.output;
@@ -89,6 +90,7 @@ Meow = {
         var server = this.Netcat.udp()
           .port(this.port)
           .listen()
+          .k()
           .on('data', this.onUDPServerGetData);
 
         server.output = this.output;
