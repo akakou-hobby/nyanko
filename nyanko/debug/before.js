@@ -1,0 +1,1 @@
+location.href = 'after.html'

@@ -1,0 +1,3 @@
+[submodule "nyanko/lib/vue"]
+	path = nyanko/lib/vue
+	url = https://github.com/vuejs/vue

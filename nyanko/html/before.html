@@ -1,68 +1,63 @@
 <head>
-    <link rel="stylesheet" href="../lib/skyblue/css/skyblue.css">
-    <link rel="stylesheet" href="../css/base.css">
+  <script src="../js/data.js"></script>
+  <!--<script src="../debug/before.js"></script>-->
+  <script src="../lib/vue/dist/vue.js"/></script>
+  
+  <link rel="stylesheet" href="../lib/skyblue/css/skyblue.css">
+  <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
   <h1>Welcome to Nyanko</h1>
-
-  <div id=server_or_client>
-    <h3>Server or Client</h3>
-
-    <p>Choose nyanko mode.</p>
+  
+  <h3>Server or Client</h3>
+  <p>Choose nyanko mode.</p>
+  
+  <div id="mode">
     <label class="fancy-radio">
-      <input type="radio" name="server_or_client" id="server_radio" onchange="onChangeRadioButton()">
-      <span>Server Mode</span>
+    <input type="radio" name="mode" value="server" v-model="picked">
+    <span>Server Mode</span>
     </label>
-    <label class="fancy-radio">
-      <input type="radio" name="server_or_client" id="client_radio" onchange="onChangeRadioButton()">
-      <span>Client Mode</span>
-    </label>
-  </div>
-  <br>
-
-  <div id=transport_layer>
-    <h3>UDP or TCP</h3>
-
-    <p>Choose transport layer protocol that you want to use.</p>
-    <label class="fancy-radio">
-      <input type="radio" name="transport_layer" id="udp_radio" onchange="onChangeRadioButton()">
-      <span>UDP</span>
-    </label>
-    <label class="fancy-radio">
-      <input type="radio" name="transport_layer" id="tcp_radio" onchange="onChangeRadioButton()">
-      <span>TCP</span>
+    
+    <label class="fancy-radio"/>
+    <input type="radio" name="mode" value="client" v-model="picked">
+    <span>Client Mode</span>
     </label>
   </div>
+
   <br>
 
-  <div id="host:port">
-    <h3>Host and Port</h3>
+  <h3>UDP or TCP</h3>
+  <p>Choose transport layer protocol that you want to use.</p>
+  
+  <div id="protocol">
+    <label class="fancy-radio">
+    <input type="radio" name="protocol" value="udp" v-model="picked"/>
+    <span>UDP</span>
+    </label>
 
-    <p>Enter target host and port.</p>
-    <p>If nyanko is server mode, you don't have to enter host.(but you must enter port)</p>
-    <div>
+    <label class="fancy-radio">
+    <input type="radio" name="protocol" value="tcp" v-model="picked"/>
+    <span>TCP</span>
+    </label>
+  </div>
+
+  <br>
+
+  <h3>Host and Port</h3>
+  <p>Enter target host and port.</p>
+
+  <div id="network">
     <label>Host</label>
-    <input class="form-control" type="text" id="host_text">
+    <input class="form-control" type="text" v-model="address"/>
     <label>Port</label>
-    <input class="form-control" type="text" id="port_text" onchange="onChangePortText()">
-
-</div>
-  </div>
-  <br>
-
-  <div>
-    <h3>Message</h3>
-
-    <p>If you want to send packet.</p>
-    <p>Please on this check box and type message.</p>
-
-    <select class="form-control" onchange="onChangeSelecter()" id="selecter"></select>
-
-    <textarea class="form-control" style="height:50%;" id="message_textarea"></textarea>
+    <input class="form-control" type="text" v-model="port">
   </div>
 
   <br>
-  <a class="btn btn-light" style="width:100%;" id="meow_button" onclick="onPushedButton()">Meow</a>
+  
+  <a class="btn btn-light" style="width:100%;" onclick="submit()">Meow</a>
 
+  <script src="../js/before.js"></script>
 </body>
+  

@@ -19,6 +19,6 @@
   "homepage": "https://github.com/akakou/netnyanko#readme",
   "dependencies": {
     "html-escape": "^2.0.0",
-    "netcat": "^1.2.8"
+    "node-netcat": "^1.4.8"
   }
 }
