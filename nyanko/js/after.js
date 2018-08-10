@@ -7,11 +7,11 @@ var io = new Vue({
   },
   methods: {
     submit: (message) => {
-      _client.send(io.input)
+      cat.send(io.input)
       io.input = ""
     },
     close: () => {
-      _client.close()
+      cat.close()
       location.href = './before.html'
     }
   }
@@ -20,4 +20,4 @@ var io = new Vue({
 
 var data = config.read()
 
-var _client = meow(data, io);
+var cat = meow(data, io);

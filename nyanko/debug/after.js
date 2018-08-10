@@ -1,6 +1,6 @@
 config.read = () => {
   return {
-    mode: 'client',
+    mode: 'server',
     protocol: 'udp',
     address: 'localhost',
     port: 8080
