@@ -11,7 +11,10 @@ var io = new Vue({
       io.input = ""
     },
     close: () => {
-      cat.close()
+      try{
+        cat.close()
+      } catch (e){
+      }
       location.href = './before.html'
     }
   }
