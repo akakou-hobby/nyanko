@@ -2,7 +2,7 @@
   "name": "Nyanko",
   "version": "1.0.0",
   "description": "Netcat for GUI",
-  "main": "src/main.js",
+  "main": "nyanko/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
